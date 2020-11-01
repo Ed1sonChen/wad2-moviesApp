@@ -1,5 +1,7 @@
 let movies;
 const movieId = 497582; // Enola Holmes movie id
+const reviewerId1 = "5f69e4d0cee2f6003633becf";
+const reviewerId2 = "5f6f9d26a6e2d2003a7d4e02";
 let reviews;
 
 describe("Navigation", () => {
@@ -59,7 +61,8 @@ describe("Navigation", () => {
       cy.url().should("not.include", `/movies/${movieId}/reviews`);
     });
     it("navigate to the full review page when a 'Full Review' link is clicked", () => {
-      // TODO
+      cy.contains("Full Review").click();
+      cy.url().should("include",`/reviews/${reviewerId1||reviewerId2}`);
     });
   });
 });
