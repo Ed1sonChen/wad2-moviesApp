@@ -18,10 +18,10 @@ const App = () => {
 
         </ul>
         <Switch>
+          <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
-          <Route path="/reviews/:id" component={MovieReviewPage} />
           <Redirect from="*" to="/" />
         </Switch>
       </div>
