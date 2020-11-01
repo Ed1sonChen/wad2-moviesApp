@@ -1,56 +1,51 @@
-/// <reference types="cypress" />
+let movies;
+const movieId = 497582; // Enola Holmes movie id
+let reviews;
 
-context('Navigation', () => {
-  beforeEach(() => {
-    cy.visit('https://example.cypress.io')
-    cy.get('.navbar-nav').contains('Commands').click()
-    cy.get('.dropdown-menu').contains('Navigation').click()
-  })
+describe("Navigation", () => {
+  before(() => {
+    cy.request(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env(
+        "TMDB_KEY"
+      )}&language=en-US&include_adult=false&include_video=false&page=1`
+    )
+      .its("body")
+      .then((response) => {
+        movies = response.results;
+      });
+    cy.request(
+      `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${Cypress.env(
+        "TMDB_KEY"
+      )}`
+    )
+      .its("body")
+      .then((response) => {
+        console.log(response);
+        reviews = response.results;
+      });
+  });
 
-  it('cy.go() - go back or forward in the browser\'s history', () => {
-    // https://on.cypress.io/go
+  describe("From the home page", () => {
+    beforeEach(() => {
+      cy.visit("/");
+    });
+    it("should navigate to the movie details page and change browser URL", () => {
+      cy.get(".card").eq(1).find("img").click();
+      cy.url().should("include", `/movies/${movies[1].id}`);
+      cy.get("h2").contains(movies[1].title);
+    });
+    it.only("should allow navigation from site header", () => {
+      cy.get("nav").find("li").eq(2).find("a").click();
+      cy.url().should("include", `/favorites`);
+      cy.get("h2").contains("Favorite Movies");
+      cy.get("nav").find("li").eq(1).find("a").click();
+      cy.url().should("not.include", `/favorites`);
+      cy.get("h2").contains("No. Movies");
+      cy.get("nav").find("li").eq(2).find("a").click();
+      cy.get("nav.navbar-brand").find("a").click();
+      cy.url().should("not.include", `/favorites`);
+      cy.get("h2").contains("No. Movies");
+    });
+  });
 
-    cy.location('pathname').should('include', 'navigation')
-
-    cy.go('back')
-    cy.location('pathname').should('not.include', 'navigation')
-
-    cy.go('forward')
-    cy.location('pathname').should('include', 'navigation')
-
-    // clicking back
-    cy.go(-1)
-    cy.location('pathname').should('not.include', 'navigation')
-
-    // clicking forward
-    cy.go(1)
-    cy.location('pathname').should('include', 'navigation')
-  })
-
-  it('cy.reload() - reload the page', () => {
-    // https://on.cypress.io/reload
-    cy.reload()
-
-    // reload the page without using the cache
-    cy.reload(true)
-  })
-
-  it('cy.visit() - visit a remote url', () => {
-    // https://on.cypress.io/visit
-
-    // Visit any sub-domain of your current domain
-
-    // Pass options to the visit
-    cy.visit('https://example.cypress.io/commands/navigation', {
-      timeout: 50000, // increase total time for the visit to resolve
-      onBeforeLoad (contentWindow) {
-        // contentWindow is the remote page's window object
-        expect(typeof contentWindow === 'object').to.be.true
-      },
-      onLoad (contentWindow) {
-        // contentWindow is the remote page's window object
-        expect(typeof contentWindow === 'object').to.be.true
-      },
-    })
-    })
-})
+});
