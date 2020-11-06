@@ -1,5 +1,6 @@
 {
-    "baseUrl": "http://192.168.31.238:3000/",
-    "defaultCommandTimeout": 6000
+    "baseUrl": "http://localhost:3000/",
+    "defaultCommandTimeout": 15000,
+    "requestTimeout": 20000
 }
 
