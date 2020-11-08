@@ -11,6 +11,7 @@ import UpcomingMoviesPage from './pages/upComingMoviesPage';
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
+import UpcomingMoviesContextProvider from "./contexts/upcomingMoviesContext";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <div className="jumbotron">
         <SiteHeader /> 
         <div className="container-fluid">
+          <UpcomingMoviesContextProvider>
           <MoviesContextProvider>
             <GenresContextProvider>    {/* NEW */}
         <Switch>
@@ -31,6 +33,7 @@ const App = () => {
         </Switch>
         </GenresContextProvider>    {/* NEW */}
           </MoviesContextProvider>
+          </UpcomingMoviesContextProvider>
         </div>
       </div>
     </BrowserRouter>

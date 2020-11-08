@@ -1,7 +1,7 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies } from "../api/tmdb-api";
+import { getUpcomingMovies } from "../api/tmdb-api";
 
-export const MoviesContext = createContext(null);
+export const upcomingMoviesContext = createContext(null);
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -27,7 +27,7 @@ const reducer = (state, action) => {
   }
 };
 
-const MoviesContextProvider = (props) => {
+const UpcomingMoviesContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, { movies: [] });
 
   const addToFavorites = (movieId) => {
@@ -40,14 +40,14 @@ const MoviesContextProvider = (props) => {
     dispatch({ type: "add-review", payload: { movie, review } });
   }; 
   useEffect(() => {
-    getMovies().then((movies) => {
+    getUpcomingMovies().then((movies) => {
       dispatch({ type: "load", payload: { movies } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <MoviesContext.Provider
+    <upcomingMoviesContext.Provider
       value={{
         movies: state.movies,
         favorites: state.favorites,
@@ -56,8 +56,8 @@ const MoviesContextProvider = (props) => {
       }}
     >
       {props.children}
-    </MoviesContext.Provider>
+    </upcomingMoviesContext.Provider>
   );
 };
 
-export default MoviesContextProvider;
+export default UpcomingMoviesContextProvider;
