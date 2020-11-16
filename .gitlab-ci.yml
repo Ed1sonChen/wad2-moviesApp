@@ -18,9 +18,6 @@ install_dependencies:
   stage: install
   script:
     - npm ci
-  artifacts:
-    paths:
-      - node_modules/
 
 bundle_app:
   stage: build
@@ -53,8 +50,3 @@ cache:
      - cache/Cypress
      - node_modules
 # END NEW
-
-install_dependencies:
-  stage: install
-  script:
-    - npm ci
