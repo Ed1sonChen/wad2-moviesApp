@@ -38,3 +38,23 @@ e2etest:
   script:
      # start the server in the background
     - npm run start:ci
+
+# NEW
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+cache:
+  key:
+    files:
+       - package.json
+  paths:
+     - .npm
+     - cache/Cypress
+     - node_modules
+# END NEW
+
+install_dependencies:
+  stage: install
+  script:
+    - npm ci
