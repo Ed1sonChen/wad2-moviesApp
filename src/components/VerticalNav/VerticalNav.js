@@ -38,6 +38,15 @@ export default class VerticalNav extends Component {
                 Movies
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/tvshows"
+                activeClassName="selected"
+                onClick={this.closeSideNav}
+              >
+                Tv Shows
+              </NavLink>
+            </li>
 
 
             <li>

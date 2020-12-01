@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
