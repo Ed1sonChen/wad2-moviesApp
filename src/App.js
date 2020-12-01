@@ -10,9 +10,8 @@ import Search from "./components/Search/Search";
 import VerticalNav from "./components/VerticalNav/VerticalNav";
 import Movies from "./components/Movies/Movies";
 import MovieDetails from "./components/Movies/MovieDetails";
-
+import Tv from "./components/TV/Tv";
 import Loading from "./components/Loader/Loading";
-
 class App extends Component {
   render() {
     return (
@@ -24,6 +23,7 @@ class App extends Component {
           <Loading />
           <Switch>
             <Route exact path="/movies" component={Movies} />
+            <Route exact path="/tvshows" component={Tv} />
             <Route
               exact
               path="/"
@@ -31,7 +31,6 @@ class App extends Component {
             />
             <Route path="/search" component={Search} />
             <Route path="/movies/details/:id" component={MovieDetails} />
-
           </Switch>
         </React.Fragment>
       </HashRouter>

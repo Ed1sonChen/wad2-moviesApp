@@ -1,4 +1,3 @@
-//import all movie reducers
 import { combineReducers } from "redux";
 import moviecastReducer from "../reducers/movie_reducers/moviecastReducer";
 import moviedetailsReducer from "./movie_reducers/moviedetailsReducer";
@@ -12,8 +11,9 @@ import upcomingmoviesReducer from "./movie_reducers/upcomingmoviesReducer";
 import genreReducer from "./movie_reducers/genreReducer";
 import trendingmoviesReducer from "./movie_reducers/trendingmoviesReducer";
 
-
-
+import tvcastReducer from "../reducers/tv_reducers/tvcastReducer";
+import tvgenreReducer from "./tv_reducers/tvgenreReducer";
+import airingtodaytvshowsReducer from "./tv_reducers/airingtodaytvshowsReducer";
 import itemsloadingReducer from "./itemsloadingReducer";
 import searchReducer from "./searchReducer";
 
@@ -33,6 +33,8 @@ export default combineReducers({
 
   isLoading: itemsloadingReducer,
   searchResults: searchReducer,
- 
+  tvcasts: tvcastReducer,
+  tvgenre: tvgenreReducer,
+  airingtodayTvshows: airingtodaytvshowsReducer
 
 });
