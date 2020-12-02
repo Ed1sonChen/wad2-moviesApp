@@ -14,12 +14,12 @@ import trendingmoviesReducer from "./movie_reducers/trendingmoviesReducer";
 import tvcastReducer from "../reducers/tv_reducers/tvcastReducer";
 import tvgenreReducer from "./tv_reducers/tvgenreReducer";
 import populartvshowsReducer from "./tv_reducers/populartvshowsReducer";
+import onairtvshowsReducer from "./tv_reducers/onairtvshowsReducer";
 import airingtodaytvshowsReducer from "./tv_reducers/airingtodaytvshowsReducer";
 import itemsloadingReducer from "./itemsloadingReducer";
 import searchReducer from "./searchReducer";
 
 export default combineReducers({
-  //all state
   moviecasts: moviecastReducer,
   moviedetails: moviedetailsReducer,
   moviereviews: moviereviewsReducer,
@@ -37,6 +37,7 @@ export default combineReducers({
   tvcasts: tvcastReducer,
   tvgenre: tvgenreReducer,
   popularTvshows: populartvshowsReducer,
+  onairTvshows: onairtvshowsReducer,
   airingtodayTvshows: airingtodaytvshowsReducer
 
 });
