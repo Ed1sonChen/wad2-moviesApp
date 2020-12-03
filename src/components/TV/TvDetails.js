@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../Movies/MovieDetails.css";
+import { getTvtrailer } from "../../actions/tv_actions/getTvtrailer";
 import {  gettvDetails} from "../../actions/tv_actions/gettvDetails";
 
-
+import Modal from "../Modal/Modal";
 class TvDetails extends Component {
   state = {
     id: null,
@@ -23,6 +24,7 @@ class TvDetails extends Component {
     this.setState({
       id: id
     })
+    this.props.getTvtrailer(id);
     this.props.gettvDetails(id);
     window.scrollTo(0, 0);
   }
@@ -30,7 +32,7 @@ class TvDetails extends Component {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       const newId = prevProps.match.params.id;
       this.props.gettvDetails(newId);
-      this.props.gettvCasts(newId);
+      this.props.getTvtrailer(newId);
     }
   }
   render() {
@@ -39,6 +41,7 @@ class TvDetails extends Component {
     const imgSize = "w1280";
     const {
     tvdetails,
+      tvtrailers,
     } = this.props;
     console.log("props", this.props)
 
@@ -75,7 +78,20 @@ class TvDetails extends Component {
                   )}
               </div>
             </div>
-
+            <button className="play-trailer" onClick={this.showModal}>
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" className="svg-inline--fa fa-play fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z">
+                </path>
+              </svg>
+              <span className="play-trailer-content">Watch Trailer</span>
+            </button>
+            {
+              this.state.show ? (
+                <Modal show={this.state.show} handleClose={this.hideModal}>
+                  { tvtrailers ? <iframe title="1" src={`https://www.youtube.com/embed/${tvtrailers.key}`}></iframe> : <p className="no-trailer"> Sorry! no trailer found</p>}
+                </Modal>
+              ) : (null)
+            }
 
 
           </div>
@@ -95,12 +111,13 @@ class TvDetails extends Component {
 
 }
 const mapStateToProps = state => ({
-    tvcasts: state.tvcasts.tvcasts,
+  tvtrailers: state.movietrailers.tvtrailers,
   tvdetails: state.tvdetails.tvdetails,
 });
 export default connect(
   mapStateToProps,
   {
+    getTvtrailer,
     gettvDetails,
   }
 )(TvDetails);

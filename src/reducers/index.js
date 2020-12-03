@@ -14,6 +14,7 @@ import trendingmoviesReducer from "./movie_reducers/trendingmoviesReducer";
 import tvcastReducer from "../reducers/tv_reducers/tvcastReducer";
 import tvdetailsReducer from "./tv_reducers/tvdetailsReducer";
 import tvgenreReducer from "./tv_reducers/tvgenreReducer";
+import tvtrailerReducer from "./tv_reducers/tvtrailerReducer";
 import populartvshowsReducer from "./tv_reducers/populartvshowsReducer";
 import onairtvshowsReducer from "./tv_reducers/onairtvshowsReducer";
 import topratedtvshowsReducer from "./tv_reducers/topratedtvshowsReducer";
@@ -39,6 +40,7 @@ export default combineReducers({
   tvcasts: tvcastReducer,
   tvdetails: tvdetailsReducer,
   tvgenre: tvgenreReducer,
+  tvtrailers: tvtrailerReducer,
   topratedTvshows: topratedtvshowsReducer,
   popularTvshows: populartvshowsReducer,
   onairTvshows: onairtvshowsReducer,
