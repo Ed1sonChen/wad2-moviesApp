@@ -1,4 +1,5 @@
 import { GET_TV_CASTS } from "../../actions/types";
+
 const initialState = {
     tvcasts: []
 };

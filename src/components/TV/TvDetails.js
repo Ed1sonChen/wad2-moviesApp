@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../Movies/MovieDetails.css";
 import { getTvtrailer } from "../../actions/tv_actions/getTvtrailer";
+import { gettvCasts } from "../../actions/tv_actions/gettvCasts";
 import {  gettvDetails} from "../../actions/tv_actions/gettvDetails";
+import Cast from "../Cast/Cast";
 
 import Modal from "../Modal/Modal";
 class TvDetails extends Component {
@@ -25,6 +27,7 @@ class TvDetails extends Component {
       id: id
     })
     this.props.getTvtrailer(id);
+    this.props.gettvCasts(id);
     this.props.gettvDetails(id);
     window.scrollTo(0, 0);
   }
@@ -32,6 +35,7 @@ class TvDetails extends Component {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       const newId = prevProps.match.params.id;
       this.props.gettvDetails(newId);
+      this.props.gettvCasts(newId);
       this.props.getTvtrailer(newId);
     }
   }
@@ -41,6 +45,7 @@ class TvDetails extends Component {
     const imgSize = "w1280";
     const {
     tvdetails,
+      tvcasts,
       tvtrailers,
     } = this.props;
     console.log("props", this.props)
@@ -100,6 +105,9 @@ class TvDetails extends Component {
               <h2>SYNOPSIS</h2>
               <p>{tvdetails.overview}</p>
             </div>:null}
+
+            {tvcasts.length>0? <Cast casts={tvcasts} />:null}
+
             
             
           </div>
@@ -111,12 +119,14 @@ class TvDetails extends Component {
 
 }
 const mapStateToProps = state => ({
+  tvcasts: state.tvcasts.tvcasts,
   tvtrailers: state.movietrailers.tvtrailers,
   tvdetails: state.tvdetails.tvdetails,
 });
 export default connect(
   mapStateToProps,
   {
+    gettvCasts,
     getTvtrailer,
     gettvDetails,
   }
