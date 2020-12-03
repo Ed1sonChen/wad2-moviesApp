@@ -4,9 +4,10 @@ import "../Movies/MovieDetails.css";
 import { getTvtrailer } from "../../actions/tv_actions/getTvtrailer";
 import { gettvCasts } from "../../actions/tv_actions/gettvCasts";
 import {  gettvDetails} from "../../actions/tv_actions/gettvDetails";
+import { getsimilarTvshows } from "../../actions/tv_actions/getsimilarTvshows";
 import Cast from "../Cast/Cast";
-
 import Modal from "../Modal/Modal";
+import SimilarTvshows from "../SimilarTvshows";
 class TvDetails extends Component {
   state = {
     id: null,
@@ -29,12 +30,14 @@ class TvDetails extends Component {
     this.props.getTvtrailer(id);
     this.props.gettvCasts(id);
     this.props.gettvDetails(id);
+    this.props.getsimilarTvshows(id);
     window.scrollTo(0, 0);
   }
   componentWillReceiveProps(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       const newId = prevProps.match.params.id;
       this.props.gettvDetails(newId);
+      this.props.getsimilarTvshows(newId);
       this.props.gettvCasts(newId);
       this.props.getTvtrailer(newId);
     }
@@ -47,6 +50,7 @@ class TvDetails extends Component {
     tvdetails,
       tvcasts,
       tvtrailers,
+      similarTvshows
     } = this.props;
     console.log("props", this.props)
 
@@ -107,9 +111,11 @@ class TvDetails extends Component {
             </div>:null}
 
             {tvcasts.length>0? <Cast casts={tvcasts} />:null}
-
-            
-            
+            {similarTvshows.length>0?<div className="r-movie-list">
+              <h2>SIMILIAR TV SHOWS</h2>
+              <SimilarTvshows s_tvshow={similarTvshows} />
+            </div>:null}
+                        
           </div>
         </div>
 
@@ -122,6 +128,7 @@ const mapStateToProps = state => ({
   tvcasts: state.tvcasts.tvcasts,
   tvtrailers: state.movietrailers.tvtrailers,
   tvdetails: state.tvdetails.tvdetails,
+  similarTvshows: state.similarTvshows.similarTvshows,
 });
 export default connect(
   mapStateToProps,
@@ -129,5 +136,6 @@ export default connect(
     gettvCasts,
     getTvtrailer,
     gettvDetails,
+    getsimilarTvshows
   }
 )(TvDetails);

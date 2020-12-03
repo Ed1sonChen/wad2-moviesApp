@@ -15,6 +15,7 @@ import tvcastReducer from "../reducers/tv_reducers/tvcastReducer";
 import tvdetailsReducer from "./tv_reducers/tvdetailsReducer";
 import tvgenreReducer from "./tv_reducers/tvgenreReducer";
 import tvtrailerReducer from "./tv_reducers/tvtrailerReducer";
+import similartvshowsReducer from "./tv_reducers/similartvshowsReducer";
 import populartvshowsReducer from "./tv_reducers/populartvshowsReducer";
 import onairtvshowsReducer from "./tv_reducers/onairtvshowsReducer";
 import topratedtvshowsReducer from "./tv_reducers/topratedtvshowsReducer";
@@ -42,9 +43,10 @@ export default combineReducers({
   tvgenre: tvgenreReducer,
   tvtrailers: tvtrailerReducer,
   topratedTvshows: topratedtvshowsReducer,
+  similarTvshows: similartvshowsReducer,
   popularTvshows: populartvshowsReducer,
   onairTvshows: onairtvshowsReducer,
   airingtodayTvshows: airingtodaytvshowsReducer
 
-  
+
 });
