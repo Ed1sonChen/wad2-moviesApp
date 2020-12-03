@@ -112,7 +112,7 @@ class TvDetails extends Component {
 
             {tvcasts.length>0? <Cast casts={tvcasts} />:null}
             {similarTvshows.length>0?<div className="r-movie-list">
-              <h2>SIMILIAR TV SHOWS</h2>
+              <h2>SIMILAR TV SHOWS</h2>
               <SimilarTvshows s_tvshow={similarTvshows} />
             </div>:null}
                         
