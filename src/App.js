@@ -7,6 +7,7 @@ import Movies from "./components/Movies/Movies";
 import MovieDetails from "./components/Movies/MovieDetails";
 import Tv from "./components/TV/Tv";
 import Loading from "./components/Loader/Loading";
+import TvDetails from "./components/TV/TvDetails";
 class App extends Component {
   render() {
     return (
@@ -26,6 +27,7 @@ class App extends Component {
             />
             <Route path="/search" component={Search} />
             <Route path="/movies/details/:id" component={MovieDetails} />
+            <Route path="/tvshows/details/:id" component={TvDetails} />
           </Switch>
         </React.Fragment>
       </HashRouter>
