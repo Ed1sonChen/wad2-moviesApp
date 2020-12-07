@@ -14,7 +14,8 @@ import Modal from "../Modal/Modal";
 class MovieDetails extends Component {
   state = {
     id: null,
-    show: false
+    show: false,
+    liked: false
   }
   showModal = () => {
     this.setState({ show: true });
@@ -26,13 +27,24 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     let id = this.props.match.params.id
+    let list = localStorage.getItem('likes')
+    if (!list) {
+      list = []
+    } else {
+      list = JSON.parse(list)
+      let exist = list.find(item => {
+        return item.id === id
+      })
+      this.setState({
+        liked: !!exist
+      })
+    }
     console.log(id);
     this.setState({
       id: id
     })
     this.props.getmovieTrailer(id);
     this.props.getmovieCasts(id);
-    /*this.props.getmovieReviews(id);*/
     this.props.getmovieDetails(id);
     this.props.getrecommendedMovies(id);
     window.scrollTo(0, 0);
@@ -46,6 +58,33 @@ class MovieDetails extends Component {
       this.props.getmovieTrailer(newId);
     }
   }
+  addLike() {
+    const { id } = this.state;
+    const { poster_path, vote_average, original_title, genres } = this.props.moviedetails
+    const path = 'https://image.tmdb.org/t/p/'
+    const obj = {
+      id,
+      coverImg: `${path}w154${poster_path}`,
+      name: original_title,
+      score: vote_average,
+      tags: genres
+    }
+    let likes = localStorage.getItem('likes')
+    if (likes) {
+      likes = JSON.parse(likes)
+    } else {
+      likes = []
+    }
+    const exist = likes.find(item => item.id === id)
+    if (!exist) {
+      likes.push(obj)
+      localStorage.setItem('likes', JSON.stringify(likes))
+      this.setState({
+        liked: true
+      })
+    }
+  }
+
   render() {
 
     const path = 'https://image.tmdb.org/t/p/'
@@ -53,11 +92,9 @@ class MovieDetails extends Component {
     const {
       moviedetails,
       moviecasts,
-      //moviereviews,
       movietrailers,
       recommendedMovies
     } = this.props;
-    console.log("props", this.props)
 
     return (
       <React.Fragment>
@@ -69,7 +106,7 @@ class MovieDetails extends Component {
         <div className="container">
           <div className="movies">
 
-            <img className="poster" src={`${path}w154${moviedetails.poster_path}`}  alt={moviedetails.original_title}/>
+            <img className="poster" src={`${path}w154${moviedetails.poster_path}`} alt={moviedetails.original_title} />
             <div className="moviedetails">
               <h2>{moviedetails.original_title}</h2>
               <div className="user-score">
@@ -92,13 +129,18 @@ class MovieDetails extends Component {
                   )}
               </div>
             </div>
-            <button className="play-trailer" onClick={this.showModal}>
-              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" className="svg-inline--fa fa-play fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z">
-                </path>
-              </svg>
-              <span className="play-trailer-content">Watch Trailer</span>
-            </button>
+            <div>
+              <button className="play-trailer" onClick={this.showModal}>
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" className="svg-inline--fa fa-play fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                  <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z">
+                  </path>
+                </svg>
+                <span className="play-trailer-content">Watch Trailer</span>
+              </button>
+              <button className="play-trailer" onClick={e => this.addLike()}>
+                <span className="play-trailer-content">{this.state.liked ? 'already in the watchlist' : 'add to watch list'}</span>
+              </button>
+            </div>
             {
               this.state.show ? (
                 <Modal show={this.state.show} handleClose={this.hideModal}>
@@ -110,16 +152,16 @@ class MovieDetails extends Component {
 
           </div>
           <div className="main">
-          {moviedetails.overview? (<div className="synopsis">
+            {moviedetails.overview ? (<div className="synopsis">
               <h2>SYNOPSIS</h2>
               <p>{moviedetails.overview}</p>
-          </div>):null}
-            {moviecasts.length>0? <Cast casts={moviecasts} />:null}
-            {recommendedMovies.length>0?<div className="r-movie-list">
+            </div>) : null}
+            {moviecasts.length > 0 ? <Cast casts={moviecasts} /> : null}
+            {recommendedMovies.length > 0 ? <div className="r-movie-list">
               <h2>RECOMMENDED MOVIES</h2>
               <RecommendedMovies r_movies={recommendedMovies} />
-            </div>:null}
-            
+            </div> : null}
+
           </div>
         </div>
 

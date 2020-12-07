@@ -1,0 +1,15 @@
+.watch-list {
+    margin-top: 100px;
+}
+.movies-watch {
+    display: flex;
+    flex-wrap: wrap;
+}
+.name {
+    color: #fff;
+    font-size: 16px;
+}
+li.item {
+    margin: 12px;
+    position: relative;
+}
