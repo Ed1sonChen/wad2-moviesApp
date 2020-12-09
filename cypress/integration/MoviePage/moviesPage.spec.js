@@ -21,13 +21,13 @@ describe("Home Page", () => {
       })
     })
 
-    describe("navigation test", () => {
+    it("navigation test", () => {
         cy.get(".nav-btn").click();
         cy.wait(1000)
         cy.get(".open").should("have.class",'selected')
     })
 
-    describe('test slick dots', () => {
+    it("test slick dots", () => {
         cy.get('.slick-dots>li').click()
     })
   })
