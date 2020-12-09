@@ -7,7 +7,6 @@ import { getmovieDetails } from "../../actions/movie_actions/getmovieDetails";
 import { getmovieReviews } from "../../actions/movie_actions/getmovieReviews";
 import { getrecommendedMovies } from "../../actions/movie_actions/getrecommendedMovies";
 import Cast from "../Cast/Cast";
-
 import RecommendedMovies from "../RecommendedMovies/RecommendedMovies";
 import Modal from "../Modal/Modal";
 

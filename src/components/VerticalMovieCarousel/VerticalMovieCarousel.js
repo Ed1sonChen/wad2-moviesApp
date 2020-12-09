@@ -8,7 +8,7 @@ export default function VerticalMovieCarousel(props) {
   let x = "";
   const settings = {
     autoplay: true,
-    speed: 1500 /*if number  is increased speed is slow*/,
+    speed: 1500 ,
     autoplaySpeed: 7000,
     slidesToShow: 1,
     slidesToScroll: 1,

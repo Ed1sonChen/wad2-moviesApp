@@ -56,6 +56,7 @@ export default class VerticalNav extends Component {
                 Watch List
               </NavLink>
             </li>
+
             <li>
               <NavLink
                 to="/search"
