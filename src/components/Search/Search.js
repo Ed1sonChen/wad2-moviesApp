@@ -38,7 +38,7 @@ class Search extends Component {
             <React.Fragment>
                 <div className="container-search">
                     <form className="searchbar" onSubmit={this.handleSubmit}>
-                        <input type="search" placeholder="🔍 search a movie by title" aria-label="search" required="" onChange={this.handleChange} />
+                        <input type="search" placeholder="🔍 search by title" aria-label="search" required="" onChange={this.handleChange} />
                         <button type="submit">search</button>
                     </form>
                     <h2>Search Results for {this.state.searchFieldValue}</h2>
