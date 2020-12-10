@@ -94,7 +94,7 @@ Name: Chen Zhiling
 
 # Assignment 1 - Agile Software Practice.
 
-Name: ... your name ...
+Name: Chen Zhiling
 
 ## App Features.
 

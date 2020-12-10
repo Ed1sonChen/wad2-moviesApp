@@ -1,6 +1,9 @@
 # Node docker image with Cypress and Chrome pre-installed
 image: cypress/browsers:node12.0.0-chrome73
 
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+
 # Pipeline
 stages:
   - install
@@ -11,27 +14,31 @@ stages:
 # Jobs 
 install_dependencies:
   stage: install
-  cahce:
+  cache:
     policy: push
     paths:
       - node_modules/
   script:
     - ls -la
     - yarn config set registry "https://registry.npm.taobao.org"
-    -yarn
+    - yarn
 
 lint-code:
   stage: lint
   cache:
     policy: push
-    paths: 
-      -node_modules/
+    paths:
+      - node_modules/
   script:
     - ls -la
     - yarn lint
 
 bundle_app:
   stage: build
+  cache:
+    policy: push
+    paths:
+      - node_modules/
   script:
     - ls -la
     - yarn build
@@ -42,8 +49,8 @@ bundle_app:
 e2etest:    
   stage: test
   cache:
-    policy: pull
-    paths: 
+    policy: push
+    paths:
       - node_modules/
   script:
      # start the server in the background

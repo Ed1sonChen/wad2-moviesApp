@@ -46,6 +46,7 @@ class MovieDetails extends Component {
     this.props.getmovieCasts(id);
     this.props.getmovieDetails(id);
     this.props.getrecommendedMovies(id);
+    this.props.getmovieReviews(id);
     window.scrollTo(0, 0);
   }
   componentWillReceiveProps(prevProps) {
@@ -54,6 +55,7 @@ class MovieDetails extends Component {
       this.props.getmovieDetails(newId);
       this.props.getrecommendedMovies(newId);
       this.props.getmovieCasts(newId);
+      this.props.getmovieTrailer(newId);
       this.props.getmovieTrailer(newId);
     }
   }
@@ -92,7 +94,7 @@ class MovieDetails extends Component {
       moviedetails,
       moviecasts,
       movietrailers,
-      recommendedMovies
+      recommendedMovies,
     } = this.props;
 
     return (
@@ -198,6 +200,7 @@ class MovieDetails extends Component {
             </div> : null}
 
           </div>
+
         </div>
 
       </React.Fragment>
