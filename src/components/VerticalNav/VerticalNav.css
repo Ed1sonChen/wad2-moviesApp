@@ -1,6 +1,5 @@
-/* 1. NAV */
 nav {
-  background: black;
+  background: #ffffff;
   position: fixed;
   top: 0;
   width: 100%;
@@ -20,8 +19,8 @@ nav {
   color: white;
 }
 nav ul {
-  background: #131517;
-  position: absolute;
+  background: #ffffff;
+  position: absolute!important;
   top: 100%;
   left: 0;
   bottom: 0;
@@ -42,10 +41,11 @@ nav ul li a:hover {
 }
 
 .selected {
-  color: #fff;
-  background: #61dafb;
+  color: #fff!important;
+  background: #61dafb!important;
 }
 
 .open {
   transform: translateX(0);
 }
+

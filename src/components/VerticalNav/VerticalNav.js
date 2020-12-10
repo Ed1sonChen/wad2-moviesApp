@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "./VerticalNav.css"
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 export default class VerticalNav extends Component {
   state = { isOpen: false };
   toggleSideNav = () => {
@@ -28,45 +32,22 @@ export default class VerticalNav extends Component {
           >
             <i className="fas fa-bars" />
           </button>
-          <ul className={isSideNavOpen}>
-            <li>
-              <NavLink
-                to="/movies"
-                activeClassName="selected"
-                onClick={this.closeSideNav}
-              >
-                Movies
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/tvshows"
-                activeClassName="selected"
-                onClick={this.closeSideNav}
-              >
-                Tv Shows
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/watchlist"
-                activeClassName="selected"
-                onClick={this.closeSideNav}
-              >
-                Watch List
-              </NavLink>
-            </li>
 
-            <li>
-              <NavLink
-                to="/search"
-                activeClassName="selected"
-                onClick={this.closeSideNav}
-              >
-                Search
-              </NavLink>
-            </li>
-          </ul>
+          <List component="ul" aria-label="main mailbox folders" className={isSideNavOpen}>
+            <ListItem component={NavLink} button to="/movies" onClick={this.closeSideNav} activeClassName="selected">
+              <ListItemText primary="Movies" />
+            </ListItem>
+            <ListItem component={NavLink} button to="/tvshows" onClick={this.closeSideNav} activeClassName="selected">
+              <ListItemText primary="Tv Shows" />
+            </ListItem>
+            <ListItem component={NavLink} button to="/watchlist" onClick={this.closeSideNav} activeClassName="selected">
+              <ListItemText primary="Watch List" />
+            </ListItem>
+            <ListItem component={NavLink} button to="/search" onClick={this.closeSideNav} activeClassName="selected">
+              <ListItemText primary="Search" />
+            </ListItem>
+          </List>
+
         </div>
       </nav>
     );
