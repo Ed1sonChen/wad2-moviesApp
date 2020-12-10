@@ -78,6 +78,39 @@ class TvDetails extends Component {
               <span className="vote-count">
                 {tvdetails.vote_count} votes
               </span>
+              <div className="vote-count"> 
+              status: {tvdetails.status}
+              </div>
+
+              <div className="genre-list">
+                {tvdetails && tvdetails.spoken_languages &&
+                  tvdetails.spoken_languages.map(g =>
+                    <span key={g.id}>
+                      language: {g.name}
+                    </span>
+                    )}
+              </div>
+
+              <div className="genre-list">
+                <span>production companies : </span>
+                {tvdetails && tvdetails.production_companies &&
+                  tvdetails.production_companies.map(g =>
+                    <span key={g.id}>
+                       {g.name}
+                    </span>
+                    )}
+              </div>
+
+              <div className="genre-list">
+                <span>production countries : </span>
+                {tvdetails && tvdetails.production_countries &&
+                  tvdetails.production_countries.map(g =>
+                    <span key={g.id}>
+                       {g.name}
+                    </span>
+                    )}
+              </div>
+
               <div className="genre-list">
                 {tvdetails && tvdetails.genres &&
                   tvdetails.genres.map(g =>
@@ -106,7 +139,7 @@ class TvDetails extends Component {
           </div>
           <div className="main">
             {tvdetails.overview?<div className="synopsis">
-              <h2>SYNOPSIS</h2>
+              <h2>OVERVIEW</h2>
               <p>{tvdetails.overview}</p>
             </div>:null}
 

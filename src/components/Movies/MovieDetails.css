@@ -68,6 +68,18 @@ height: 1em;
     margin-left:27px;
     padding-top:19px;
 }
+.release-date{
+    margin-left:27px;
+    padding-top:19px;
+}
+.runtime{
+    margin-left:27px;
+    padding-top:19px;
+}
+.list-group-item {
+    padding: 2px;
+    margin-top: 5px;
+  }
 .synopsis p{
     color:white;
 }

@@ -92,6 +92,50 @@ Name: Chen Zhiling
 
 ---------------------------------
 
+# Assignment 1 - Agile Software Practice.
+
+Name: ... your name ...
+
+## App Features.
+
+[Document each new feature/page in your Movies Fan app, including: Feature Name; Its objective/purpose; The associated test file; a screenshot of its UI.]
+e,g,
+ 
++ Movie Details page - Shows the details about a movie. The Show reviews button reveals an excerpt for each critic review of the movie.
+
+Tests: cypress/integration/movieDetails.spec.js 
+
+![][movieDetail]
+
++ Movie Review page: Displays the full text of a movie review.
+
+Tests: cypress/integration/movieReviewPage.spec.js 
+
+![][review]
+
++ etc
+
++ etc
+
+## Testing.
+
+Cypress Dashboard URL: ... your project's dashboard URL .....
+
+### Advanced Testing (If required).
+
+[State briefly each instances of boundary and/or error/exceptional test case in your project]
+e.g.
+
++ cypress/integration/movieReviewPage.spec.js - test the movieReview page when the Review id is invalid. 
++ cypress/integration/movieDetails.spec.js - test when a movie has no reviews.
++ etc
+
+## Independent learning (If relevant).
+
+[ Itemize each technologies/techniques used in your project that were not covered in the lectures/labs. Provide the necessary evidence of their use (e,g, project file names, screenshots, service URL, etc)
+
+List reference material links (articles/blogs).
+
 [model]: ./data.jpg
 [movieDetail]: ./public/movieDetail.png
 [review]: ./public/review.png

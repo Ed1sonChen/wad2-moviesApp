@@ -116,9 +116,44 @@ class MovieDetails extends Component {
                 <div>{moviedetails.vote_average * 10} %</div>
 
               </div>
+
               <span className="vote-count">
                 {moviedetails.vote_count} votes
               </span>
+              <div className="release-date"> 
+              release_date: {moviedetails.release_date}<br></br>
+              run time(min.): {moviedetails.runtime}
+              </div>
+              
+              <div className="genre-list">
+                {moviedetails && moviedetails.spoken_languages &&
+                  moviedetails.spoken_languages.map(g =>
+                    <span key={g.id}>
+                      language: {g.name}
+                    </span>
+                    )}
+              </div>
+
+              <div className="genre-list">
+                <span>production companies : </span>
+                {moviedetails && moviedetails.production_companies &&
+                  moviedetails.production_companies.map(g =>
+                    <span key={g.id}>
+                       {g.name}
+                    </span>
+                    )}
+              </div>
+
+              <div className="genre-list">
+                <span>production countries : </span>
+                {moviedetails && moviedetails.production_countries &&
+                  moviedetails.production_countries.map(g =>
+                    <span key={g.id}>
+                       {g.name}
+                    </span>
+                    )}
+              </div>
+
               <div className="genre-list">
                 {moviedetails && moviedetails.genres &&
                   moviedetails.genres.map(g =>
@@ -127,6 +162,7 @@ class MovieDetails extends Component {
                     </span>
                   )}
               </div>
+
             </div>
             <div>
               <button className="play-trailer" onClick={this.showModal}>
@@ -152,7 +188,7 @@ class MovieDetails extends Component {
           </div>
           <div className="main">
             {moviedetails.overview ? (<div className="synopsis">
-              <h2>SYNOPSIS</h2>
+              <h2>Overview</h2>
               <p>{moviedetails.overview}</p>
             </div>) : null}
             {moviecasts.length > 0 ? <Cast casts={moviecasts} /> : null}
