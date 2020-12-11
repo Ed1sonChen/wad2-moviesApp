@@ -44,7 +44,7 @@ export default class VerticalNav extends Component {
               <ListItemText primary="Watch List" />
             </ListItem>
             <ListItem component={NavLink} button to="/favourite" onClick={this.closeSideNav} activeClassName="selected">
-              <ListItemText primary="favourite" />
+              <ListItemText primary="Favourite" />
             </ListItem>
             <ListItem component={NavLink} button to="/search" onClick={this.closeSideNav} activeClassName="selected">
               <ListItemText primary="Search" />
