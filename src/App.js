@@ -9,6 +9,7 @@ import Tv from "./components/TV/Tv";
 import Loading from "./components/Loader/Loading";
 import TvDetails from "./components/TV/TvDetails";
 import WatchList from './components/Movies/WatchList'
+import favourite from "./components/TV/favourite";
 class App extends Component {
   render() {
     return (
@@ -21,6 +22,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/movies" component={Movies} />
             <Route path="/watchList" component={WatchList} />
+            <Route path="/favourite" component={favourite} />
             <Route exact path="/tvshows" component={Tv} />
             <Route
               exact

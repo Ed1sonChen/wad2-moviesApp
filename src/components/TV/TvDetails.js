@@ -42,6 +42,34 @@ class TvDetails extends Component {
       this.props.getTvtrailer(newId);
     }
   }
+
+  addFavourite() {
+    const { id } = this.state;
+    const { poster_path, vote_average, original_title, genres } = this.props.tvdetails
+    const path = 'https://image.tmdb.org/t/p/'
+    const obj = {
+      id,
+      coverImg: `${path}w154${poster_path}`,
+      name: original_title,
+      score: vote_average,
+      tags: genres
+    }
+    let favourites = localStorage.getItem('favourites')
+    if (favourites) {
+      favourites = JSON.parse(favourites)
+    } else {
+      favourites = []
+    }
+    const exist = favourites.find(item => item.id === id)
+    if (!exist) {
+      favourites.push(obj)
+      localStorage.setItem('favourites', JSON.stringify(favourites))
+      this.setState({
+        liked: true
+      })
+    }
+  }
+  
   render() {
 
     const path = 'https://image.tmdb.org/t/p/'
@@ -120,6 +148,7 @@ class TvDetails extends Component {
                   )}
               </div>
             </div>
+            <div>
             <button className="play-trailer" onClick={this.showModal}>
               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" className="svg-inline--fa fa-play fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z">
@@ -127,6 +156,10 @@ class TvDetails extends Component {
               </svg>
               <span className="play-trailer-content">Watch Trailer</span>
             </button>
+            <button className="play-trailer" onClick={e => this.addFavourite()}>
+                <span className="play-trailer-content">{this.state.liked ? 'already in the favourite' : 'add to favourite'}</span>
+              </button>
+            </div>
             {
               this.state.show ? (
                 <Modal show={this.state.show} handleClose={this.hideModal}>
