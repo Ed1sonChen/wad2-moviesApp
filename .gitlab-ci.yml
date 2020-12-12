@@ -1,5 +1,5 @@
 # Node docker image with Cypress and Chrome pre-installed
-image: cypress/browsers:node13.6.0-chrome80-ff72
+image: cypress/browsers:node12.0.0-chrome73
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -37,6 +37,9 @@ bundle_app:
 
 e2etest:    
   stage: test
+  before_script:
+    - yarn add -g http-server
+    - yarn add cypress
   cache:
     policy: pull
     paths:
