@@ -7,7 +7,6 @@ cache:
 # Pipeline
 stages:
   - install
-  - lint
   - build
   - test
 
@@ -22,16 +21,6 @@ install_dependencies:
     - ls -la
     - yarn config set registry "https://registry.npm.taobao.org"
     - yarn
-
-lint_code:
-  stage: lint
-  cache:
-    policy: pull
-    paths:
-      - node_modules/
-  script:
-    - ls -la
-    - yarn run lint
 
 bundle_app:
   stage: build
