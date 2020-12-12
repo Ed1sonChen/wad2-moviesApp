@@ -38,7 +38,7 @@ bundle_app:
 e2etest:    
   stage: test
   before_script:
-    - yarn add -g http-server
+    - yarn -g http-server
     - yarn add cypress
   cache:
     policy: pull
