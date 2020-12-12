@@ -1,5 +1,5 @@
 # Node docker image with Cypress and Chrome pre-installed
-image: cypress/browsers:node12.0.0-chrome73
+image: cypress/browsers:node13.6.0-chrome80-ff72
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -42,6 +42,7 @@ e2etest:
     paths:
       - node_modules/
   script:
+    - ls -la
      # start the server in the background
     - yarn start:ci
 
