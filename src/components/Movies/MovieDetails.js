@@ -9,6 +9,7 @@ import { getrecommendedMovies } from "../../actions/movie_actions/getrecommended
 import Cast from "../Cast/Cast";
 import RecommendedMovies from "../RecommendedMovies/RecommendedMovies";
 import Modal from "../Modal/Modal";
+import {Button} from 'antd';
 
 class MovieDetails extends Component {
   state = {
@@ -167,16 +168,16 @@ class MovieDetails extends Component {
 
             </div>
             <div>
-              <button className="play-trailer" onClick={this.showModal}>
+              <Button className="play-trailer" onClick={this.showModal}>
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" className="svg-inline--fa fa-play fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z">
                   </path>
                 </svg>
                 <span className="play-trailer-content">Watch Trailer</span>
-              </button>
-              <button className="play-trailer" onClick={e => this.addLike()}>
+              </Button>
+              <Button className="play-trailer" onClick={e => this.addLike()}>
                 <span className="play-trailer-content">{this.state.liked ? 'already in the watchlist' : 'add to watch list'}</span>
-              </button>
+              </Button>
             </div>
             {
               this.state.show ? (
