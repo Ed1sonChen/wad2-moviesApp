@@ -10,8 +10,7 @@ import MovieHeader from "../src/components/headerMovie";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
-import { cast } from "../src/components/Cast";
-import { Cast } from "@material-ui/icons";
+import { Cast } from "../src/components/Cast";
 
 const sample = {
   adult: false,
