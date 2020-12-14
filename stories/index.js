@@ -7,10 +7,11 @@ import MoviesHeader from "../src/components/headerMovieList";
 import MovieList from "../src/components/movieList";
 import MovieDetails from "../src/components/movieDetails";
 import MovieHeader from "../src/components/headerMovie";
-import AddFavoriteButton from "../src/components/buttons/addToFavorites";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
+import { cast } from "../src/components/Cast";
+import { Cast } from "@material-ui/icons";
 
 const sample = {
   adult: false,
@@ -152,3 +153,19 @@ storiesOf("Movie Details Page/MovieHeader", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => <MovieHeader movie={sample} />);
+
+storiesOf("Movie Details Page/Cast", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => {
+    const cast = [sample, sample, sample, sample, sample];
+    return (
+      <Cast
+        cast={cast}
+        action={cast => (
+          <button className="btn w-100 btn-primary">Test</button>
+        )}
+      />
+    );
+  });
