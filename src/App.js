@@ -10,16 +10,17 @@ import Loading from "./components/Loader/Loading";
 import TvDetails from "./components/TV/TvDetails";
 import WatchList from './components/Movies/WatchList'
 import favourite from "./components/TV/favourite";
+import LoginPage from './components/Login/loginPage'
 class App extends Component {
   render() {
     return (
-      <HashRouter basename="/MoviesApp">
-   
-   
+      <HashRouter basename="/MoviesApp">   
         <React.Fragment>
 ]         <VerticalNav />
           <Loading />
           <Switch>
+            <Route path="/login" component={LoginPage} />
+            
             <Route exact path="/movies" component={Movies} />
             <Route path="/watchList" component={WatchList} />
             <Route path="/favourite" component={favourite} />

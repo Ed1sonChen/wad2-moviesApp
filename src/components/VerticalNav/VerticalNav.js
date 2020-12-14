@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "./VerticalNav.css"
+import {Button} from 'antd';
+import {Link,withRouter} from 'react-router-dom'
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-export default class VerticalNav extends Component {
+
+class VerticalNav extends Component {
   state = { isOpen: false };
   toggleSideNav = () => {
     const { isOpen } = this.state;
@@ -24,6 +27,9 @@ export default class VerticalNav extends Component {
     const activeBtn = isOpen ? "#61dafb" : "";
     return (
       <nav>
+          {!this.props.location.pathname.startsWith('/login')&&<div className="header-user">
+          {window.username ? <span style={{marginTop:-10}}>Chen</span> : <Link to={'/login'}><Button>login</Button></Link>}
+        </div>}
         <div className="container">
           <button
             className="nav-btn"
@@ -56,3 +62,5 @@ export default class VerticalNav extends Component {
     );
   }
 }
+
+export default withRouter(VerticalNav)

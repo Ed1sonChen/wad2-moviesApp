@@ -1,9 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import {message} from 'antd';
 import "./HorizontalCarousel.css";
-export default function HorizontalMovieCarousel(props) {
-  const { carouselName, movies } = props;
+function HorizontalMovieCarousel(props) {
+  const { carouselName, movies, history } = props;
   const handleGenreName = genreId => {
     let mainGenre = "";
     if (props.genre) {
@@ -68,7 +69,13 @@ export default function HorizontalMovieCarousel(props) {
         {movies &&
           movies.map(movie => (
             <figure key={movie.id} className="h-carousel-item">
-              <Link to={`/movies/details/${movie.id}`}>
+              <Link onClick={()=>{
+                if(!window.username){
+                  message.warn('please login')
+                  return
+                }
+                history.push(`/movies/details/${movie.id}`)
+              }}>
                 <img
                   src={`${path}${imgSize}${movie.poster_path}`}
                   alt={movie.title}
@@ -97,3 +104,5 @@ export default function HorizontalMovieCarousel(props) {
     </React.Fragment>
   );
 }
+
+export default withRouter(HorizontalMovieCarousel)

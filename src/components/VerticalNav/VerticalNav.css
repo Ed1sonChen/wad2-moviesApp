@@ -48,4 +48,21 @@ nav ul li a:hover {
 .open {
   transform: translateX(0);
 }
+.header-user{
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  z-index: 1;
+}
 
+.header-user > span{
+  background-color: #76459e;
+  color: white;
+  border-radius: 50%;
+  display: inline-block;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
