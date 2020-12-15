@@ -404,3 +404,33 @@ List reference material links (articles/blogs).
 [reviewLink]: ./public/reviewLink.png
 [cardLink]: ./public/cardLink.png
 [stories]: ./public/storybook.png
+[favourite page]: ./public/favourite page.png
+[link arrow]: ./public/link arrow.png
+[link circle button]: ./public/link circle button.png
+[link favourite]: ./public/link favourite.png
+[link login]: ./public/link login.png
+[link movie]: ./public/link movie.png
+[link search]: ./public/link search.png
+[link side bar 2]: ./public/link side bar 2.png
+[link side bar]: ./public/link side bar.png
+[link trailer]: ./public/link trailer.png
+[link watchlist]: ./public/link watchlist.png
+[login]: ./public/login.png
+[movie details page]: ./public/movie details page.png
+[movie details page 2]: ./public/movie details page 2.png
+[movieDetail]: ./public/movieDetail.png
+[movies page]: ./public/movies page.png
+[movies page 2]: ./public/movies page 2.png
+[movies page 3]: ./public/movies page 3.png
+[please login]: ./public/please login.png
+[search page]: ./public/search page.png
+[side bar]: ./public/side bar.png
+[structure]: ./public/structure.png
+[trailer]: ./public/treiler.png
+[tv show detail]: ./public/tv show detail.png
+[tv show detail] 2: ./public/tv show detail 2.png
+[tv show page]: ./public/tv show page.png
+[tv show page 2]: ./public/tv show page 2.png
+[tv show page 3]: ./public/tv show page 3.png
+[watch list page]: ./public/watch list page.png
+
