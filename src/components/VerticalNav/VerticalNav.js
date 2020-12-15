@@ -27,9 +27,10 @@ class VerticalNav extends Component {
     const activeBtn = isOpen ? "#61dafb" : "";
     return (
       <nav>
-          {!this.props.location.pathname.startsWith('/login')&&<div className="header-user">
-          {window.username ? <span style={{marginTop:-10}}>Chen</span> : <Link to={'/login'}><Button>login</Button></Link>}
-        </div>}
+        {!this.props.location.pathname.startsWith('/login')&&
+          <div className="header-user">
+            {window.username ? <span style={{marginTop:-10}}>Chen</span> : <Link to={'/login'}><Button>login</Button></Link>}
+          </div>}
         <div className="container">
           <button
             className="nav-btn"

@@ -1,16 +1,9 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import MovieCard from "../src/components/movieCard";
-import FilterControls from "../src/components/filterControls";
-import MoviesHeader from "../src/components/headerMovieList";
-import MovieList from "../src/components/movieList";
-import MovieDetails from "../src/components/movieDetails";
-import MovieHeader from "../src/components/headerMovie";
 import { MemoryRouter } from "react-router";
-import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
-import { Cast } from "../src/components/Cast";
+import { Login } from "../src/components/Login/Login";
 
 const sample = {
   adult: false,
@@ -92,28 +85,6 @@ const sample = {
   vote_average: 7,
   vote_count: 9692
 };
-
-storiesOf("Home Page/MovieCard", module)
-  .addDecorator(story => (
-    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
-  ))
-  .add("default", () => (
-    <MovieCard
-      movie={sample}
-      action={movie => <button className="btn w-100 btn-primary">Test</button>}
-    />
-  ))
-  .add("exception", () => {
-    const sampleNoPoster = { ...sample, poster_path: undefined };
-    return (
-      <MovieCard
-        movie={sampleNoPoster}
-        action={movie => (
-          <button className="btn w-100 btn-primary">Test</button>
-        )}
-      />
-    );
-  });
 
 storiesOf("Home Page/FilterControls", module)
   .addDecorator(story => (
