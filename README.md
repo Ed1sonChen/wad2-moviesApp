@@ -420,16 +420,40 @@ Cypress Dashboard URL: https://dashboard.cypress.io/organizations/44a42d42-5bce-
 
 ### Advanced Testing (If required).
 
-[State briefly each instances of boundary and/or error/exceptional test case in your project]
-e.g.
-
-+ cypress/integration/movieReviewPage.spec.js - test the movieReview page when the Review id is invalid. 
-+ cypress/integration/movieDetails.spec.js - test when a movie has no reviews.
-+ etc
++ cypress/integration/MoviesPage/loginPage.spec.js - test when the username is empty
++ cypress/integration/MoviesPage/loginPage.spec.js - test when the password is empty
++ cypress/integration/MoviesPage/tvDetails.spec.js - test when the tv show has no trailer to show
 
 ## Independent learning (If relevant).
 
-[ Itemize each technologies/techniques used in your project that were not covered in the lectures/labs. Provide the necessary evidence of their use (e,g, project file names, screenshots, service URL, etc)
+1.code coverage:
+    - I used code coverage for the project by using the instrumenr-cra package.
+    - screenshot
+        - ![][code-coverage-import]
+        - ![][code-coverage-report]
+    - reference:
+        - https://docs.cypress.io/guides/tooling/code-coverage.html#See-also
+
+2.Cypress data-cy 
+    - I used data-cy to help easier find the elements.
+    - filename:
+        - cypress/integration/MoviesPage/loginPage.specjs
+    - referemce:
+        - https://docs.cypress.io/guides/references/best-practices.html
+
+3.Cypress custom command
+    - I used the cypress custom command to simplify test code.
+    - filename: 
+        - cypress/support/commands.js
+        - cypress/integration/MoviesPage/login-custom_command.spec.js
+    - part of the source code
+        - ```javascript
+        Cypress.Commands.add('login', (username, pwd) => {
+        cy.get('input[data-cy=username]').type(username)
+        cy.get('input[data-cy=password]').type(pwd)
+        })
+    - reference:
+        - https://docs.cypress.io/api/cypress-api/custom-commands.html#Syntax
 
 List reference material links (articles/blogs).
 
@@ -468,4 +492,6 @@ List reference material links (articles/blogs).
 [tv show page 2]: ./public/tv show page 2.png
 [tv show page 3]: ./public/tv show page 3.png
 [watch list page]: ./public/watch list page.png
+[code-coverage-import]: ./public/code-coverage-import.png
+[code-coverage-report]: ./public/code-coverage-report.png
 

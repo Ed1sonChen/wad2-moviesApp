@@ -23,8 +23,14 @@ describe("Login Page", () => {
             cy.get(".header-user").find("span").should("have.value","Chen");
         })
 
-        it("should login failed without username or password", () => {
+        it("should login failed without username", () => {
             cy.get('[data-cy=username]').type("chen");
+            cy.get(".ant-btn").click();
+            cy.url().should("include", "/login");
+        })
+
+        it("should login failed without password", () => {
+            cy.get('[data-cy=password]').type("chen");
             cy.get(".ant-btn").click();
             cy.url().should("include", "/login");
         })
