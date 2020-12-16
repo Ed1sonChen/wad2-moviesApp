@@ -359,29 +359,35 @@ Name: Chen Zhiling
 Name: Chen Zhiling
 
 ## App Features.
-
-[Document each new feature/page in your Movies Fan app, including: Feature Name; Its objective/purpose; The associated test file; a screenshot of its UI.]
-e,g,
  
-+ Movie Details page - Shows the details about a movie. The Show reviews button reveals an excerpt for each critic review of the movie.
++ Movie Details page - Shows the details about a movie. 
 
-Tests: cypress/integration/movieDetails.spec.js 
+Tests: cypress/integration/MoviesPage/movieDetails.spec.js 
 
-![][movieDetail]
+![][movie details page]
 
-+ Movie Review page: Displays the full text of a movie review.
++ TV Details page - Shows the details about a movie.
 
-Tests: cypress/integration/movieReviewPage.spec.js 
+Tests: cypress/integration/MoviesPage/tvDetails.spec.js 
 
-![][review]
+![][Tv show detail]
 
-+ etc
++ Login page - Support users to log in the application to visit some private route.
 
-+ etc
+Tests: cypress/integration/MoviesPage/loginPage.spec.js
+
+![][login]
+
++ Search page - Support users to search the movies/tv shows they want to watch.
+
+Tests: cypress/integration/MoviesPage/searchPage.spec.js
+
+![][search page]
+
 
 ## Testing.
 
-Cypress Dashboard URL: ... your project's dashboard URL .....
+Cypress Dashboard URL: https://dashboard.cypress.io/organizations/44a42d42-5bce-42fa-8d94-5c91d9561e16/projects
 
 ### Advanced Testing (If required).
 

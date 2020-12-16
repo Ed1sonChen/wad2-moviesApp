@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cypress/instrument-cra": "^1.4.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
@@ -27,7 +28,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -s ./public -p 6006 -c ./.storybook",
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -43,9 +44,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@cypress/code-coverage": "^3.8.5",
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/react": "^5.3.1",
+    "babel-plugin-istanbul": "^5.2.0",
     "cypress": "6.1.0",
+    "istanbul-lib-coverage": "^3.0.0",
+    "nyc": "^15.1.0",
     "start-server-and-test": "^1.10.6"
   }
 }

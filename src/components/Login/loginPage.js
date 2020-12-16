@@ -22,9 +22,9 @@ const LoginPage = ({history})=> {
   return (
     <div className={'login-container'}>
       <div className={'login-card'}>
-        <Input className={'input'} placeholder="Username"
+        <Input className={'input'} placeholder="Username" data-cy="username"
                onChange={event => setUserName(event.target.value)}/>
-        <Input.Password className={'input'} placeholder="Password"
+        <Input.Password className={'input'} placeholder="Password" data-cy="password"
                         onChange={event => setPassword(event.target.value)}/>
         <Button onClick={doLogin} type={"primary"}>LOGIN</Button>
       </div>

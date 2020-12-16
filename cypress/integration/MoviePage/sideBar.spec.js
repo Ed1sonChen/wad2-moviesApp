@@ -9,11 +9,11 @@ describe("Movies Page", () => {
             cy.get("ul")
                 .eq(1)
                 .within(() => {
-                    cy.get("a").eq(0).find(span).contains("Movies");
-                    cy.get("a").eq(1).find(span).contains("Tv shows");
-                    cy.get("a").eq(2).find(span).contains("Watch List");
-                    cy.get("a").eq(3).find(span).contains("Favourite");
-                    cy.get("a").eq(4).find(span).contains("Search");
+                    cy.get("a").eq(0).find("span").contains("Movies");
+                    cy.get("a").eq(1).find("span").contains("Tv shows");
+                    cy.get("a").eq(2).find("span").contains("Watch List");
+                    cy.get("a").eq(3).find("span").contains("Favourite");
+                    cy.get("a").eq(4).find("span").contains("Search");
                 })
         })
 

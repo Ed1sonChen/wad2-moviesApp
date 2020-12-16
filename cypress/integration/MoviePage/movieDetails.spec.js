@@ -28,7 +28,7 @@ describe("Movie Details Page", () => {
   });
 
   it("should display movie title", () => {
-    cy.get(".moviedetails").children().contains(movie.title);
+    cy.get(".moviedetails").find("h2").contains(movie.title);
   });
 
   it("should display the movie's details", () => {
@@ -36,7 +36,12 @@ describe("Movie Details Page", () => {
   });
 
   it("should display the overview", () => {
-    cy.get(".synopsis").children().contains(movie.overview)
+    cy.get(".synopsis").find("h2").contains(movie.overview)
   });
+
+  it("should display the trailer", () => {
+    cy.get(".ant-btn").eq(1).click();
+    cy.get('[data-sessionlink=feature=player-title]').should("include",movie.title);
+  })
 
 });

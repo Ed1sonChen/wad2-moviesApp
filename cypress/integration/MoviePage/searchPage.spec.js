@@ -1,7 +1,7 @@
 describe("Search Page", () => {
     beforeEach(() => {
         cy.visit('/');
-        cy.get(".nav-btn").click().get('.open').find("li").eq(3).click();
+        cy.get(".nav-btn").click().get('.open').find("li").eq(4).click();
     });
 
     it("should display the right search page", () => {
