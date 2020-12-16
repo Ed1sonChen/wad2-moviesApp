@@ -1,25 +1,20 @@
 
 let movieId = null
 let movie;
-let reviews;
 describe("Movie Details Page", () => {
   before(() => {
     cy.request(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env(
-        "TMDB_KEY"
-      )}&language=en-US&include_adult=false&include_video=false&page=1`
+      `https://api.themoviedb.org/3/movie/popular?api_key=be62f8209a470d981bf010ea52ec236c&language=en-US&include_adult=false&include_video=false&page=1`
     )
       .its("body")
       .then((response) => {
-        return response.results[2].id;
+        return response.results[1].id;
       })
       .then((arbitraryMovieIdignored) => {
         movieId = arbitraryMovieIdignored
         return cy
           .request(
-            `https://api.themoviedb.org/3/movie/${movieId}?api_key=${Cypress.env(
-              "TMDB_KEY"
-            )}`
+            `https://api.themoviedb.org/3/movie/${movieId}?api_key=be62f8209a470d981bf010ea52ec236c`
           )
           .its("body");
       })
@@ -29,37 +24,19 @@ describe("Movie Details Page", () => {
       })
   });
   beforeEach(() => {
-    cy.visit(`/`);
-    cy.get(".card").eq(2).find("img").click();
+    cy.visit(`/movies/details/${movie.id}`);
   });
 
-  it("should display movie title in the page header", () => {
-    cy.get("h2").contains(movie.title);
+  it("should display movie title", () => {
+    cy.get(".moviedetails").children().contains(movie.title);
   });
 
   it("should display the movie's details", () => {
-    cy.get("h4").contains("Overview");
-    cy.get("h4").next().contains(movie.overview);
-    cy.get("ul")
-      .eq(1)
-      .within(() => {
-        cy.get("li").eq(0).contains("Runtime");
-        cy.get("li").eq(1).contains(movie.runtime);
-        cy.get("li").eq(2).contains("Release Date");
-        cy.get("li").eq(3).contains(movie.release_date);
-      });
+    cy.get(".release-date").contains(movie.release_date);
   });
 
-  it("should display the Home icon with the correct URL value", () => {
-    cy.get(".fa-home")
-      .parent()
-      .should("have.attr", "href")
-      .should("include", movie.homepage);
+  it("should display the overview", () => {
+    cy.get(".synopsis").children().contains(movie.overview)
   });
-  
-  it("should display an image tag with the appropriate src attribute", () => {
-    cy.get(".movie")
-        .should("have.attr", "src")
-        .should("include", movie.poster_path);;
-  });
+
 });
