@@ -67,7 +67,7 @@ Name: Chen Zhiling
 
 ### UI Design.
 
-![][movies page]
+![][movies-page]
 >Shows the now playing movies. When the user click the circle button, it can load the previous/next movie. When the user click the movies card, it can show the movie details page.
 
 ![][movies page2]
@@ -160,19 +160,19 @@ Name: Chen Zhiling
 
 ## Independent learning (If relevant).
 
-1.create-react-app
+1. create-react-app
     - I used create-react-app to rebuild the structure of the project.
     - structure:
         - ![][structure]
     - reference:
         - https://github.com/facebook/create-react-app
 
-2.redux,redux-thunk and immutable
+2. redux,redux-thunk and immutable
     - I used the redux instead of context to solve communication between react components and state sharing between components, mainly involved 3 parts (store + action + reducer).
     - filename:
         - /src/store/
     - part of the source code:
-        - ``` javascript
+        - ```javascript
         import { applyMiddleware, createStore, compose } from "redux";
         import thunk from "redux-thunk";
         import rootReducer from "./reducers";
@@ -195,7 +195,7 @@ Name: Chen Zhiling
         - /src/actions/tv_actions/
         - /src/actions/getsearchResults/
     - part of the source code:
-        - ``` javascript
+        - ```javascript
         import { GET_GENRE } from "../types";
         import { url } from "../../config/config";
         import { API_KEY } from "../../config/config";
@@ -215,7 +215,7 @@ Name: Chen Zhiling
                 })
             };
 
-4.react-slick
+4. react-slick
     - I used the slider from react-slick to realize the movie carousel effect.
     - filename:
         - /src/components/HorizontalCarousel/HorizontalMovieCarousel
@@ -256,7 +256,7 @@ Name: Chen Zhiling
                     ))}
             </Slider>
 
-5.react-redux
+5. react-redux
     - I used <provider/> component to make the data in the store available to the app and I used the connect from react-redux to connect the components with store.
     - filename:
         - /src/components/Movies/MovieDetails/
@@ -280,7 +280,7 @@ Name: Chen Zhiling
         document.getElementById("root")
         );
 
-6.Material UI
+6. Material UI
     - I used the material in the side bar.
     - filename:
         -/src/components/VerticalNav/VerticalNav/
@@ -306,7 +306,7 @@ Name: Chen Zhiling
     - reference:
         - https://material-ui.com/zh/
 
-7.Antd UI
+7. Antd UI
     - I used the antd ui in the login page and movie/tv detail page.
     - file name:
         - /src/components/Login/loginPage/
@@ -426,7 +426,7 @@ Cypress Dashboard URL: https://dashboard.cypress.io/organizations/44a42d42-5bce-
 
 ## Independent learning (If relevant).
 
-1.code coverage:
+1. code coverage:
     - I used code coverage for the project by using the instrumenr-cra package.
     - screenshot
         - ![][code-coverage-import]
@@ -434,14 +434,14 @@ Cypress Dashboard URL: https://dashboard.cypress.io/organizations/44a42d42-5bce-
     - reference:
         - https://docs.cypress.io/guides/tooling/code-coverage.html#See-also
 
-2.Cypress data-cy 
+2. Cypress data-cy 
     - I used data-cy to help easier find the elements.
     - filename:
         - cypress/integration/MoviesPage/loginPage.specjs
     - referemce:
         - https://docs.cypress.io/guides/references/best-practices.html
 
-3.Cypress custom command
+3. Cypress custom command
     - I used the cypress custom command to simplify test code.
     - filename: 
         - cypress/support/commands.js
@@ -478,7 +478,7 @@ List reference material links (articles/blogs).
 [movie details page]: ./public/movie details page.png
 [movie details page 2]: ./public/movie details page 2.png
 [movieDetail]: ./public/movieDetail.png
-[movies page]: ./public/movies page.png
+[movies-page]: ./public/movies-page.png
 [movies page 2]: ./public/movies page 2.png
 [movies page 3]: ./public/movies page 3.png
 [please login]: ./public/please login.png
