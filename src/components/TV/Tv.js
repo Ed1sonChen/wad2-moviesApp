@@ -31,19 +31,19 @@ class Tv extends Component {
 
                 <div className="home-container">
                     <div className="container pb-6">
-                        <HorizontalTvCarousel
+                        <HorizontalTvCarousel 
                             carouselName="Popular"
                             tvshows={popularTvshows}
                             genre={tvgenre}
                         />
                         <hr className="section-separator" />
-                        <HorizontalTvCarousel
+                        <HorizontalTvCarousel 
                             carouselName="On Air"
                             tvshows={onairTvshows}
                             genre={tvgenre}
                         />
                         <hr className="section-separator" />
-                        <HorizontalTvCarousel
+                        <HorizontalTvCarousel 
                             carouselName="Top Rated"
                             tvshows={topratedTvshows}
                             genre={tvgenre}

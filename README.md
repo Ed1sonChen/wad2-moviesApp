@@ -359,12 +359,24 @@ Name: Chen Zhiling
 Name: Chen Zhiling
 
 ## App Features.
+
++ Movies Page - Shows the now playing movies, popular movies, trending movies, top rated movies and upcoming movies.
+
+Tests: cypress/integration/MoviesPage/moviesPage.spec.js
+
+![][movies page]
+![][movies page 2]
+![][movies page 3]
  
 + Movie Details page - Shows the details about a movie. 
 
 Tests: cypress/integration/MoviesPage/movieDetails.spec.js 
 
 ![][movie details page]
+
++ TV shows page - Shows the airing today tv shows, popular tv shows, on air tv shows and top rated tv shows.
+
+Tests: cypress/integration/MoviesPage/tvPage.spec.js
 
 + TV Details page - Shows the details about a movie.
 
@@ -384,6 +396,23 @@ Tests: cypress/integration/MoviesPage/searchPage.spec.js
 
 ![][search page]
 
++ Side Bar - Shows all the links to the pages in the moviesApp.
+
+Tests: cypress/integration/MoviesPage/sideBar.spec.js
+
+![][side bar]
+
++ Watch List Page - Support users to add movies which they want to watch in the future to the watch list.
+
+Tests: cypress/integration/MoviesPage/watchlist.spec.js
+
+![][watch list page]
+
++ Favourite Page - Support users to add tv shows to the Favourite page.
+
+Tests: cypress/integration/MoviesPage/favourite.spec.js
+
+![][favourite page]
 
 ## Testing.
 
