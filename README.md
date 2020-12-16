@@ -67,7 +67,7 @@ Name: Chen Zhiling
 
 ### UI Design.
 
-![][movies-page]
+![][./public/movies-page.png]
 >Shows the now playing movies. When the user click the circle button, it can load the previous/next movie. When the user click the movies card, it can show the movie details page.
 
 ![][movies page2]
@@ -172,7 +172,7 @@ Name: Chen Zhiling
     - filename:
         - /src/store/
     - part of the source code:
-        - ```javascript
+        ``` javascript
         import { applyMiddleware, createStore, compose } from "redux";
         import thunk from "redux-thunk";
         import rootReducer from "./reducers";
@@ -187,6 +187,7 @@ Name: Chen Zhiling
             )
         );
         export default store;
+        ```
 
 3. axios
     - I used axios to send get request.
@@ -195,7 +196,7 @@ Name: Chen Zhiling
         - /src/actions/tv_actions/
         - /src/actions/getsearchResults/
     - part of the source code:
-        - ```javascript
+        ``` javascript
         import { GET_GENRE } from "../types";
         import { url } from "../../config/config";
         import { API_KEY } from "../../config/config";
@@ -214,6 +215,7 @@ Name: Chen Zhiling
                     })
                 })
             };
+        ```
 
 4. react-slick
     - I used the slider from react-slick to realize the movie carousel effect.
@@ -223,7 +225,7 @@ Name: Chen Zhiling
         - /src/components/VerticalMovieCarousel/VerticalMovieCarousel
         - /src/components/VerticalMovieCarousel/VerticalTvCarousel
     - part of the source code
-        - ```javascript
+        ``` javascript
         import Slider from "react-slick";
         <Slider {...settings}>
                 {tvshows &&
@@ -255,6 +257,7 @@ Name: Chen Zhiling
                         </figure>
                     ))}
             </Slider>
+        ```
 
 5. react-redux
     - I used <provider/> component to make the data in the store available to the app and I used the connect from react-redux to connect the components with store.
@@ -265,7 +268,7 @@ Name: Chen Zhiling
         - /src/components/TV/Tv/
         - /src/components/TV/TvDetails/
     - part of the source code
-        - ``` javascript
+        ``` javascript
         import React from "react";
         import ReactDOM from "react-dom";
         import 'antd/dist/antd.css';
@@ -279,13 +282,14 @@ Name: Chen Zhiling
         </Provider>,
         document.getElementById("root")
         );
+        ```
 
 6. Material UI
     - I used the material in the side bar.
     - filename:
         -/src/components/VerticalNav/VerticalNav/
     - part of the source code
-        - ```javascript
+        ```javascript
         <List component="ul" aria-label="main mailbox folders" className={isSideNavOpen}>
             <ListItem component={NavLink} button to="/movies" onClick={this.closeSideNav} activeClassName="selected">
               <ListItemText primary="Movies" />
@@ -303,6 +307,7 @@ Name: Chen Zhiling
               <ListItemText primary="Search" />
             </ListItem>
         </List>
+        ```
     - reference:
         - https://material-ui.com/zh/
 
@@ -313,7 +318,7 @@ Name: Chen Zhiling
         - /src/components/Movies/MovieDetails/
         - /src/components/TV/TvDeatils/
     - part of the source code
-        - ```javascript
+        ```javascript
         import React, {useState} from 'react';
         import {message, Input, Button} from 'antd';
         import { withRouter } from "react-router-dom";
@@ -349,6 +354,7 @@ Name: Chen Zhiling
         }
 
         export default withRouter(LoginPage)
+        ```
     - reference:
         - https://ant.design/index-cn
 
@@ -447,11 +453,12 @@ Cypress Dashboard URL: https://dashboard.cypress.io/organizations/44a42d42-5bce-
         - cypress/support/commands.js
         - cypress/integration/MoviesPage/login-custom_command.spec.js
     - part of the source code
-        - ```javascript
+        ```javascript
         Cypress.Commands.add('login', (username, pwd) => {
         cy.get('input[data-cy=username]').type(username)
         cy.get('input[data-cy=password]').type(pwd)
         })
+        ```
     - reference:
         - https://docs.cypress.io/api/cypress-api/custom-commands.html#Syntax
 
