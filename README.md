@@ -116,10 +116,10 @@ Before you use yarn, you should delete the package-lock.json.
 ![][movieDetailspage2]
 
 >The movie details page support the following functionalities:
-    > show the basic information of the movie
-    > show the casts of the movie
-    > show 10 recommended movies related to the current movie
-    > when the user click the watch trailer button, it will pop up a window to show the trailer of the movie
+    >show the basic information of the movie
+    >show the casts of the movie
+    >show 10 recommended movies related to the current movie
+    >when the user click the watch trailer button, it will pop up a window to show the trailer of the movie
 
 ![][trailer]
 
