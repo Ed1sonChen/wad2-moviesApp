@@ -64,11 +64,6 @@ Before you use yarn, you should delete the package-lock.json.
 
 
 ## App Design.
-
-### Component catalogue (If required).
-
-![][stories]
-
 ### UI Design.
 
 ![][moviesPage]
