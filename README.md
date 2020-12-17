@@ -26,6 +26,10 @@ Name: Chen Zhiling
 
 ## Setup requirements (If required).
 
+You can use npm or yarn to install the packages.
+
+Before you use yarn, you should delete the package-lock.json.
+
 ##### Install dependencies
 `yarn install`
 
@@ -67,37 +71,50 @@ Name: Chen Zhiling
 
 ### UI Design.
 
-![][./public/movies-page.png]
+![][moviesPage]
+
 >Shows the now playing movies. When the user click the circle button, it can load the previous/next movie. When the user click the movies card, it can show the movie details page.
 
-![][movies page2]
-![][movies page3]
+![][moviesPage2]
+
+![][moviesPage3]
+
 >Shows popular, trending, top rated, upcoming movies. When the user puts the mouse arrow on the movie card, the card will become brighter and clearer. When the user click the arrow button, it can load the previous/next movie card. When the user click the movies card, it can show the movie details page.
 
 ![][login]
+
 >Support user to sign in the movie app.
 
-![][please login]
+![][pleaseLogin]
+
 >If the user don't log in, when they click the movies card, the browser will pop up prompt box "please login".
 
-![][tv show page]
+![][tvshowsPage]
+
 >Shows tv shows airing today. When the user click the circle button, it can load the previous/next tv show. When the user click the tv show card, it can show the tv show details page.
 
-![][tv show page 2]
-![][tv show page 3]
+![][tvshowsPage2]
+
+![][tvshowsPage3]
+
 >Shows popular, on air, top rated tv shows. When the user puts the mouse arrow on the card, the card will become brighter and clearer. When the user click the arrow button, it can load the previous/next tv show. When the user click the tv show card, it can show the tv show details page.
 
-![][watch list page]
+![][watchlistPage]
+
 >Shows the movies in the watch list. When the user click the movies card, it can show the movie details page.
 
-![][favourite page]
+![][favouritePage]
+
 >Shows the user's favourite tv shows. When the user click the tv show card, it can show the tv show details page.
 
-![][side bar]
+![][sideBar]
+
 >The side bar contains the main routes in the movie app, and support the search functionality.
 
-![][movie details page]
-![][movie details page 2]
+![][movieDetailsPage]
+
+![][movieDetailspage2]
+
 >The movie details page support the following functionalities:
     > show the basic information of the movie
     > show the casts of the movie
@@ -105,57 +122,70 @@ Name: Chen Zhiling
     > when the user click the watch trailer button, it will pop up a window to show the trailer of the movie
 
 ![][trailer]
+
 >It shows the trailer of the current movie/tv show.
 
-![][tv show detail]
-![][tv show detail 2]
+![][tvshowDetail]
+
+![][tvshowDetail2]
+
 >The tv show details page support the following functionalities:
     > show the basic information of the tv show
     > show the casts of the tv show
     > show 10 similar tv shows related to the current tv show
     > when the user click the watch trailer button, it will pop up a window to show the trailer of the tv show
 
-![][search page]
+![][searchPage]
+
 >The search page show the result of the searched movies/tv shows.
 
 ## Routing.
 
 + /watchlist (private) - displays the user's watch list's movies.
-+ /favourites (provate) - displays the user's favourite tv shows.
-+ /login (publick) - display the login page.
++ /favourites (private) - displays the user's favourite tv shows.
++ /login (public) - display the login page.
 + /movies (public) - display the now playing, popular, trending, top rated, upcoming movies.
 + /movies/details/:id (private) - display the movie details.
 + /tvshows (public) - display the airing today, popular, on air, top rated tv shows.
-+ /tvshows/details/:id (provate) - display the tv show details.
++ /tvshows/details/:id (private) - display the tv show details.
 + /search (public) - display the searched movies/tv shows.
 
 ### Data hyperlinking.
 
-![][link movie]
+![][linkMovie]
+
 > Clicking a card causes the display of that movie's details.
 
-![][link arrow]
+![][linkArrow]
+
 >Clicking the arrow to see the next/previous movie card.
 
-![][link circle button]
+![][linkCircleButton]
+
 >Clicking the circle button to see the next/previous movie.
 
-![][link favourite]
+![][linkFavourite]
+
 >Clicking add to favourite button to add the tv show to the favourite list.
 
-![][link login]
+![][linkLogin]
+
 >Clicking the login button to go to the login page.
 
-![][link search]
+![][linkSearch]
+
 >Clicking the search button to search the movies/tv shows the user want.
 
-![][link sidebar 2]
+![][linkSidebar2]
+
 >Clicking the side bar link to redirect to the corresponding route.
 
-![][link trailer]
+![][linkTrailer]
+
 >Clicking the watch trailer button to see the trailer.
 
-![][link watchlist]
+![][linkWatchlist]
+
 >Clicking the add to watchlist button to add the movie to the watch list.
 
 ## Independent learning (If relevant).
@@ -163,7 +193,9 @@ Name: Chen Zhiling
 1. create-react-app
     - I used create-react-app to rebuild the structure of the project.
     - structure:
+
         - ![][structure]
+
     - reference:
         - https://github.com/facebook/create-react-app
 
@@ -364,31 +396,43 @@ Name: Chen Zhiling
 
 Name: Chen Zhiling
 
+## some explanation
+
+I am sorry for that I didn't push all the test result to the cypress dashboard. Because I am in China, and the cypress cannot always get the api request from the tmdb api due to the slow network. So the cypress test always failed. I have tried many ways to solve it. You adviced me to find a open api like tmdb in China, but I can not find any open api similar to tmdb. Sometimes it can successfully test, sometimes not. I have write all the test in the cypress/integration/MoviePage.
+
 ## App Features.
 
 + Movies Page - Shows the now playing movies, popular movies, trending movies, top rated movies and upcoming movies.
 
 Tests: cypress/integration/MoviesPage/moviesPage.spec.js
 
-![][movies page]
-![][movies page 2]
-![][movies page 3]
+![][moviesPage]
+
+![][moviesPage2]
+
+![][moviesPage3]
  
 + Movie Details page - Shows the details about a movie. 
 
 Tests: cypress/integration/MoviesPage/movieDetails.spec.js 
 
-![][movie details page]
+![][movieDetailspage]
 
 + TV shows page - Shows the airing today tv shows, popular tv shows, on air tv shows and top rated tv shows.
 
 Tests: cypress/integration/MoviesPage/tvPage.spec.js
 
+![][tvshowsPage]
+
+![][tvshowsPage2]
+
+![][tvshowsPage3]
+
 + TV Details page - Shows the details about a movie.
 
 Tests: cypress/integration/MoviesPage/tvDetails.spec.js 
 
-![][Tv show detail]
+![][tvshowDetail]
 
 + Login page - Support users to log in the application to visit some private route.
 
@@ -400,25 +444,25 @@ Tests: cypress/integration/MoviesPage/loginPage.spec.js
 
 Tests: cypress/integration/MoviesPage/searchPage.spec.js
 
-![][search page]
+![][searchPage]
 
 + Side Bar - Shows all the links to the pages in the moviesApp.
 
 Tests: cypress/integration/MoviesPage/sideBar.spec.js
 
-![][side bar]
+![][sideBar]
 
 + Watch List Page - Support users to add movies which they want to watch in the future to the watch list.
 
 Tests: cypress/integration/MoviesPage/watchlist.spec.js
 
-![][watch list page]
+![][watchlistPage]
 
 + Favourite Page - Support users to add tv shows to the Favourite page.
 
 Tests: cypress/integration/MoviesPage/favourite.spec.js
 
-![][favourite page]
+![][favouritePage]
 
 ## Testing.
 
@@ -435,8 +479,9 @@ Cypress Dashboard URL: https://dashboard.cypress.io/organizations/44a42d42-5bce-
 1. code coverage:
     - I used code coverage for the project by using the instrumenr-cra package.
     - screenshot
-        - ![][code-coverage-import]
-        - ![][code-coverage-report]
+        - ![][codeCoverageImport]
+
+        - ![][codeCoverageReport]
     - reference:
         - https://docs.cypress.io/guides/tooling/code-coverage.html#See-also
 
@@ -462,43 +507,41 @@ Cypress Dashboard URL: https://dashboard.cypress.io/organizations/44a42d42-5bce-
     - reference:
         - https://docs.cypress.io/api/cypress-api/custom-commands.html#Syntax
 
-List reference material links (articles/blogs).
-
 [model]: ./data.jpg
 [movieDetail]: ./public/movieDetail.png
 [review]: ./public/review.png
 [reviewLink]: ./public/reviewLink.png
 [cardLink]: ./public/cardLink.png
 [stories]: ./public/storybook.png
-[favourite page]: ./public/favourite page.png
-[link arrow]: ./public/link arrow.png
-[link circle button]: ./public/link circle button.png
-[link favourite]: ./public/link favourite.png
-[link login]: ./public/link login.png
-[link movie]: ./public/link movie.png
-[link search]: ./public/link search.png
-[link side bar 2]: ./public/link side bar 2.png
-[link side bar]: ./public/link side bar.png
-[link trailer]: ./public/link trailer.png
-[link watchlist]: ./public/link watchlist.png
+[favouritePage]: ./public/favouritePage.png
+[linkArrow]: ./public/linkArrow.png
+[linkCircleButton]: ./public/linkCircleButton.png
+[linkFavourite]: ./public/linkFavourite.png
+[linkLogin]: ./public/linkLogin.png
+[linkMovie]: ./public/linkMovie.png
+[linkSearch]: ./public/linkSearch.png
+[linkSideBar2]: ./public/linkSideBar2.png
+[linkSideBar]: ./public/linkSideBar.png
+[linkTrailer]: ./public/linkTrailer.png
+[linkWatchlist]: ./public/linkWatchlist.png
 [login]: ./public/login.png
-[movie details page]: ./public/movie details page.png
-[movie details page 2]: ./public/movie details page 2.png
+[movieDetailsPage]: ./public/movieDetailsPage.png
+[movieDetailsPage2]: ./public/movieDetailsPage2.png
 [movieDetail]: ./public/movieDetail.png
-[movies-page]: ./public/movies-page.png
-[movies page 2]: ./public/movies page 2.png
-[movies page 3]: ./public/movies page 3.png
-[please login]: ./public/please login.png
-[search page]: ./public/search page.png
-[side bar]: ./public/side bar.png
+[moviesPage]: ./public/moviesPage.png
+[moviesPage2]: ./public/moviesPage2.png
+[moviesPage3]: ./public/moviesPage3.png
+[pleaseLogin]: ./public/pleaseLogin.png
+[searchPage]: ./public/searchPage.png
+[sideBar]: ./public/sideBar.png
 [structure]: ./public/structure.png
 [trailer]: ./public/treiler.png
-[tv show detail]: ./public/tv show detail.png
-[tv show detail] 2: ./public/tv show detail 2.png
-[tv show page]: ./public/tv show page.png
-[tv show page 2]: ./public/tv show page 2.png
-[tv show page 3]: ./public/tv show page 3.png
-[watch list page]: ./public/watch list page.png
-[code-coverage-import]: ./public/code-coverage-import.png
-[code-coverage-report]: ./public/code-coverage-report.png
+[tvshowDetail]: ./public/tvshowDetail.png
+[tvshowDetail2]: ./public/tvshowDetail2.png
+[tvshowsPage]: ./public/tvshowsPage.png
+[tvshowsPage2]: ./public/tvshowsPage2.png
+[tvshowsPage3]: ./public/tvshowsPage3.png
+[watchlistPage]: ./public/watchlistPage.png
+[codeCoverageImport]: ./public/codeCoverageImport.png
+[codeCoverageReport]: ./public/codeCoverageReport.png
 
