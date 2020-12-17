@@ -7,7 +7,6 @@ import {Link,withRouter} from 'react-router-dom'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
 class VerticalNav extends Component {
   state = { isOpen: false };
   toggleSideNav = () => {
@@ -27,6 +26,16 @@ class VerticalNav extends Component {
     const activeBtn = isOpen ? "#61dafb" : "";
     return (
       <nav>
+          <nav className="client">
+            <Link className="text-black" to="/">
+              TMDB Client
+            </Link>
+          </nav>
+
+          <span className="word">
+            For the movie enthusiast !!
+          </span>
+
         {!this.props.location.pathname.startsWith('/login')&&
           <div className="header-user">
             {window.username ? <span style={{marginTop:-10}}>Chen</span> : <Link to={'/login'}><Button>login</Button></Link>}

@@ -51,7 +51,7 @@ nav ul li a:hover {
 .header-user{
   position: absolute;
   right: 24px;
-  top: 16px;
+  top: 20px;
   z-index: 1;
 }
 
@@ -65,4 +65,23 @@ nav ul li a:hover {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
+}
+
+.client{
+  position:absolute;
+  z-index: -1;
+  top: 15px;
+}
+
+.text-black{
+  color:black;
+  font-size: 18px;
+}
+
+.word{
+  vertical-align: middle;
+  position:absolute;
+  left:620px;
+  top:20px;
+  font-size: 18px;
 }
