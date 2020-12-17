@@ -535,7 +535,7 @@ Cypress Dashboard URL: https://dashboard.cypress.io/organizations/44a42d42-5bce-
 [searchPage]: ./public/searchPage.png
 [sideBar]: ./public/sideBar.png
 [structure]: ./public/structure.png
-[trailer]: ./public/treiler.png
+[trailer]: ./public/trailer.png
 [tvshowDetail]: ./public/tvshowDetail.png
 [tvshowDetail2]: ./public/tvshowDetail2.png
 [tvshowsPage]: ./public/tvshowsPage.png
